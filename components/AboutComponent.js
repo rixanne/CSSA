@@ -76,5 +76,5 @@ function Mission() {
     </Card>
   );
 }
-
+/*testing this comment for git*/
 export default connect(mapStateToProps)(About);
