@@ -1,3 +1,11 @@
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import { campsites } from './campsites';
+import { comments } from './comments';
+import { promotions } from './promotions';
+import { favorites } from './favorites';
+import { partners } from './partners';
 import { persistStore, persistCombineReducers } from 'redux-persist';
 import storage from 'redux-persist/es/storage';
 
