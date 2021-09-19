@@ -147,7 +147,7 @@ function RenderComments({ comments }) {
           style={{ alignItems: 'flex-start', paddingVerical: '5%' }}
           readonly={true}
         />
-        <Text style={{ fontSize: 12 }}>{`--${item.text}, ${item.date}`}</Text>
+        <Text style={{ fontSize: 12 }}>{`--${item.author}, ${item.date}`}</Text>
       </View>
     );
   };

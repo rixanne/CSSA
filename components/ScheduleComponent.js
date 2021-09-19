@@ -8,8 +8,8 @@ class Schedule extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      campers: 1,
-      hikeIn: false,
+      windows: 1,
+      gutters: false,
       date: new Date(),
       showCalendar: false
     };
@@ -24,8 +24,8 @@ class Schedule extends Component {
   }
   resetForm() {
     this.setState({
-      campers: 1,
-      hikeIn: false,
+      windows: 1,
+      gutters: false,
       date: new Date(),
       showCalendar: false
     });
@@ -62,11 +62,11 @@ class Schedule extends Component {
       <ScrollView>
         <Animatable.View animation="zoomIn" duration={2000} delay={1000}>
           <View style={styles.formRow}>
-            <Text style={styles.formLabel}>Number of Campers</Text>
+            <Text style={styles.formLabel}>Number of Windows</Text>
             <Picker
               style={styles.formItem}
-              selectedValue={this.state.campers}
-              onValueChange={(itemValue) => this.setState({ campers: itemValue })}
+              selectedValue={this.state.windows}
+              onValueChange={(itemValue) => this.setState({ windows: itemValue })}
             >
               <Picker.Item label="1" value="1" />
               <Picker.Item label="2" value="2" />
@@ -77,12 +77,12 @@ class Schedule extends Component {
             </Picker>
           </View>
           <View style={styles.formRow}>
-            <Text style={styles.formLabel}>Hike in?</Text>
+            <Text style={styles.formLabel}>Add Gutters?</Text>
             <Switch
               style={styles.formItem}
-              value={this.state.hikeIn}
-              trackColor={{ true: '#5637DD', false: null }}
-              onValueChange={(value) => this.setState({ hikeIn: value })}
+              value={this.state.gutters}
+              trackColor={{ true: '#3b70b0', false: null }}
+              onValueChange={(value) => this.setState({ gutters: value })}
             />
           </View>
           <View style={styles.formRow}>
@@ -90,7 +90,7 @@ class Schedule extends Component {
             <Button
               onPress={() => this.setState({ showCalendar: !this.state.showCalendar })}
               title={this.state.date.toLocaleDateString('en-US')}
-              color="#5637DD"
+              color="#3b70b0"
               accessibilityLabel="Tap me to select Schedule date"
             />
           </View>
@@ -110,11 +110,11 @@ class Schedule extends Component {
               onPress={() =>
                 Alert.alert(
                   'Begin Search?',
-                  'Number of Campers ' +
-                    this.state.campers +
+                  'Number of Windows ' +
+                    this.state.windows +
                     '\n' +
-                    'Hike-In ' +
-                    this.state.hikeIn +
+                    'Gutters ' +
+                    this.state.gutters +
                     '\n' +
                     'Date:' +
                     this.state.date.toLocaleDateString('en-US'),
@@ -130,8 +130,8 @@ class Schedule extends Component {
                 )
               }
               title="Search"
-              color="#5637DD"
-              accessibilityLabel="Tap me to search for avaliable services to schedule"
+              color="#3b70b0"
+              accessibilityLabel="Tap me to search for available services to schedule"
             />
           </View>
         </Animatable.View>
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    backgroundColor: '#5367DD',
+    backgroundColor: '#3b70b0',
     textAlign: 'center',
     color: '#fff',
     marginBottom: 20
