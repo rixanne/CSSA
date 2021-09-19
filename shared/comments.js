@@ -3,7 +3,7 @@ export const COMMENTS = [
     id: 0,
     serviceId: 0,
     rating: 5,
-    text: 'What a magnificent view!',
+    text: 'Im 0 in commentsjs',
     author: 'Tinus Lorvaldes',
     date: '2018-10-25T16:30Z'
   },
@@ -75,7 +75,7 @@ export const COMMENTS = [
     id: 9,
     serviceId: 1,
     rating: 5,
-    text: 'What a magnificent view!',
+    text: 'Im 9 in commentsjs',
     author: 'Tinus Lorvaldes',
     date: '2018-10-25T16:30Z'
   },
@@ -107,7 +107,7 @@ export const COMMENTS = [
     id: 13,
     serviceId: 2,
     rating: 5,
-    text: 'What a magnificent view!',
+    text: 'Im 13 in commentsjs',
     author: 'Tinus Lorvaldes',
     date: '2018-10-25T16:30Z'
   },
@@ -139,7 +139,7 @@ export const COMMENTS = [
     id: 17,
     serviceId: 3,
     rating: 5,
-    text: 'What a magnificent view!',
+    text: 'Im 17 in commentsjs',
     author: 'Tinus Lorvaldes',
     date: '2018-10-25T16:30Z'
   },

@@ -30,7 +30,7 @@ class Contact extends Component {
             <Text style={{ marginBottom: 2 }}>{'Email: info@bandbwg.com'}</Text>
             <Button
               title="Send Email"
-              buttonStyle={{ backgroundColor: '#5637DD', margin: 40 }}
+              buttonStyle={{ backgroundColor: '#3b70b0', margin: 40 }}
               icon={
                 <Icon
                   name="envelope-o"

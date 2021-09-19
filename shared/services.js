@@ -1,8 +1,8 @@
 export const SERVICES = [
   {
     id: 0,
-    name: 'Windows',
-    image: '/assets/images/clean-windows.jpg',
+    name: 'Jets',
+    image: '/assets/images/jets.jpg',
     elevation: 1233,
     featured: false,
     description:
@@ -11,7 +11,7 @@ export const SERVICES = [
   {
     id: 1,
     name: 'Chrome River Campground ',
-    image: '/components/images/chrome-river.jpg',
+    image: '/assets/images/chrome-river.jpg',
     elevation: 877,
     featured: false,
     description:
