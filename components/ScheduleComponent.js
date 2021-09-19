@@ -4,7 +4,7 @@ import * as Notifications from 'expo-notifications';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import * as Animatable from 'react-native-animatable';
 
-class Reservation extends Component {
+class Schedule extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,10 +16,10 @@ class Reservation extends Component {
   }
 
   static navigationOptions = {
-    title: 'Reserve Campsite'
+    title: 'Schedule Services'
   };
 
-  handleReservation() {
+  handleSchedule() {
     console.log(JSON.stringify(this.state));
   }
   resetForm() {
@@ -41,7 +41,7 @@ class Reservation extends Component {
 
       Notifications.scheduleNotificationAsync({
         content: {
-          title: 'Your Campsite Reservation Search',
+          title: 'Your Service Schedule Search',
           body: `Search for ${date} requested`
         },
         trigger: null
@@ -91,7 +91,7 @@ class Reservation extends Component {
               onPress={() => this.setState({ showCalendar: !this.state.showCalendar })}
               title={this.state.date.toLocaleDateString('en-US')}
               color="#5637DD"
-              accessibilityLabel="Tap me to select reservation date"
+              accessibilityLabel="Tap me to select Schedule date"
             />
           </View>
           {this.state.showCalendar && (
@@ -131,7 +131,7 @@ class Reservation extends Component {
               }
               title="Search"
               color="#5637DD"
-              accessibilityLabel="Tap me to search for avaliable campsites to reserve"
+              accessibilityLabel="Tap me to search for avaliable services to schedule"
             />
           </View>
         </Animatable.View>
@@ -172,4 +172,4 @@ const styles = StyleSheet.create({
     margin: 10
   }
 });
-export default Reservation;
+export default Schedule;

@@ -20,19 +20,19 @@ import * as Animatable from 'react-native-animatable';
 
 const mapStateToProps = (state) => {
   return {
-    campsites: state.campsites,
+    services: state.services,
     comments: state.comments,
     favorites: state.favorites
   };
 };
 
 const mapDispatchToProps = {
-  postFavorite: (campsiteId) => postFavorite(campsiteId),
-  postComment: (campsiteId, rating, author, text) => postComment(campsiteId, rating, author, text)
+  postFavorite: (serviceId) => postFavorite(serviceId),
+  postComment: (serviceId, rating, author, text) => postComment(serviceId, rating, author, text)
 };
 
-function RenderCampsite(props) {
-  const { campsite } = props;
+function RenderService(props) {
+  const { service } = props;
 
   const view = React.createRef();
 
@@ -52,7 +52,7 @@ function RenderCampsite(props) {
       if (recognizeDrag(gestureState)) {
         Alert.alert(
           'Add Favorite',
-          'Are you sure you wish to add' + campsite.name + 'to favorite?',
+          'Are you sure you wish to add' + service.name + 'to favorite?',
           [
             {
               text: 'Cancel',
@@ -73,7 +73,7 @@ function RenderCampsite(props) {
     }
   });
 
-  const shareCampsite = (title, message, url) => {
+  const shareService = (title, message, url) => {
     Share.share(
       {
         title: title,
@@ -86,7 +86,7 @@ function RenderCampsite(props) {
     );
   };
 
-  if (campsite) {
+  if (service) {
     return (
       <Animatable.View
         animation="fadeInDown"
@@ -95,8 +95,8 @@ function RenderCampsite(props) {
         ref={view}
         {...panResponder.panHandlers}
       >
-        <Card featuredTitle={campsite.name} image={{ uri: baseUrl + campsite.image }}>
-          <Text style={{ margin: 10 }}>{campsite.description}</Text>
+        <Card featuredTitle={service.name} image={{ uri: baseUrl + service.image }}>
+          <Text style={{ margin: 10 }}>{service.description}</Text>
           <View style={styles.cardRow}>
             <Icon
               name={props.favorite ? 'star' : 'star-o'}
@@ -125,7 +125,7 @@ function RenderCampsite(props) {
               raised
               reverse
               onPress={() =>
-                shareCampsite(campsite.name, campsite.description, baseUrl + campsite.image)
+                shareService(service.name, service.description, baseUrl + service.image)
               }
             />
           </View>
@@ -164,7 +164,7 @@ function RenderComments({ comments }) {
     </Animatable.View>
   );
 }
-class CampsiteInfo extends Component {
+class ServiceInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -175,16 +175,16 @@ class CampsiteInfo extends Component {
     };
   }
 
-  markFavorite(campsiteId) {
-    this.props.postFavorite(campsiteId);
+  markFavorite(serviceId) {
+    this.props.postFavorite(serviceId);
   }
 
   toggleModal() {
     this.setState({ showModal: !this.state.showModal });
   }
 
-  handleComment(campsiteId) {
-    this.props.postComment(campsiteId, this.state.rating, this.state.author, this.state.text);
+  handleComment(serviceId) {
+    this.props.postComment(serviceId, this.state.rating, this.state.author, this.state.text);
     this.toggleModal();
   }
 
@@ -198,23 +198,21 @@ class CampsiteInfo extends Component {
     });
   }
   static navigationOptions = {
-    title: 'Campsite Information'
+    title: 'Service Information'
   };
 
   render() {
-    const campsiteId = this.props.navigation.getParam('campsiteId');
-    const campsite = this.props.campsites.campsites.filter(
-      (campsite) => campsite.id === campsiteId
-    )[0];
+    const serviceId = this.props.navigation.getParam('serviceId');
+    const service = this.props.services.services.filter((service) => service.id === serviceId)[0];
     const comments = this.props.comments.comments.filter(
-      (comment) => comment.campsiteId === campsiteId
+      (comment) => comment.serviceId === serviceId
     );
     return (
       <ScrollView>
-        <RenderCampsite
-          campsite={campsite}
-          favorite={this.props.favorites.includes(campsiteId)}
-          markFavorite={() => this.markFavorite(campsiteId)}
+        <RenderService
+          service={service}
+          favorite={this.props.favorites.includes(serviceId)}
+          markFavorite={() => this.markFavorite(serviceId)}
           onShowModal={() => this.toggleModal()}
         />
         <RenderComments comments={comments} />
@@ -255,7 +253,7 @@ class CampsiteInfo extends Component {
                 title="Submit"
                 color="#5637DD"
                 onPress={() => {
-                  this.handleComment(campsiteId);
+                  this.handleComment(serviceId);
                   this.resetForm();
                 }}
               />
@@ -290,4 +288,4 @@ const styles = StyleSheet.create({
     margin: 20
   }
 });
-export default connect(mapStateToProps, mapDispatchToProps)(CampsiteInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(ServiceInfo);

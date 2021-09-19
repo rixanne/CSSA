@@ -11,7 +11,7 @@ class Contact extends Component {
 
   sendMail() {
     MailComposer.composeAsync({
-      recipients: ['campsites@nucamp.co'],
+      recipients: ['info@bandbwg.com'],
       subject: 'Inquiry',
       body: 'To whom it may concern:'
     });
@@ -22,11 +22,12 @@ class Contact extends Component {
       <ScrollView>
         <Animatable.View animation="fadeInDown" duration={2000} delay={1000}>
           <Card title={'Contact Information'} wrapperStyle={{ margin: 20 }}>
-            <Text style={{ marginBottom: 2 }}>{'1 Nucamp Way'}</Text>
-            <Text style={{ marginBottom: 2 }}>{'Seattle, Wa, 98001'}</Text>
-            <Text style={{ marginBottom: 10 }}>{'U.S.A'}</Text>
-            <Text style={{ marginBottom: 2 }}>{'Phone: 1-206-555-1234'}</Text>
-            <Text style={{ marginBottom: 2 }}>{'Email: campsites@nucamp.co'}</Text>
+            <Text style={{ marginBottom: 2 }}>{'B&B Window and Gutter Cleaning'}</Text>
+            <Text style={{ marginBottom: 2 }}>{'P.O. Box 2344'}</Text>
+            <Text style={{ marginBottom: 2 }}>{'Orangevale, CA 95662'}</Text>
+            <Text style={{ marginBottom: 10 }}>{'U.S.A.'}</Text>
+            <Text style={{ marginBottom: 2 }}>{'Phone: 1-510-644-1415'}</Text>
+            <Text style={{ marginBottom: 2 }}>{'Email: info@bandbwg.com'}</Text>
             <Button
               title="Send Email"
               buttonStyle={{ backgroundColor: '#5637DD', margin: 40 }}

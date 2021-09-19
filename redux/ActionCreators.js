@@ -33,10 +33,10 @@ export const addComments = (comments) => ({
   payload: comments
 });
 
-export const fetchCampsites = () => (dispatch) => {
-  dispatch(campsitesLoading());
+export const fetchServices = () => (dispatch) => {
+  dispatch(servicesLoading());
 
-  return fetch(baseUrl + 'campsites')
+  return fetch(baseUrl + 'services')
     .then(
       (response) => {
         if (response.ok) {
@@ -53,22 +53,22 @@ export const fetchCampsites = () => (dispatch) => {
       }
     )
     .then((response) => response.json())
-    .then((campsites) => dispatch(addCampsites(campsites)))
-    .catch((error) => dispatch(campsitesFailed(error.message)));
+    .then((services) => dispatch(addServices(services)))
+    .catch((error) => dispatch(servicesFailed(error.message)));
 };
 
-export const campsitesLoading = () => ({
-  type: ActionTypes.CAMPSITES_LOADING
+export const servicesLoading = () => ({
+  type: ActionTypes.SERVICES_LOADING
 });
 
-export const campsitesFailed = (errMess) => ({
-  type: ActionTypes.CAMPSITES_FAILED,
+export const servicesFailed = (errMess) => ({
+  type: ActionTypes.SERVICES_FAILED,
   payload: errMess
 });
 
-export const addCampsites = (campsites) => ({
-  type: ActionTypes.ADD_CAMPSITES,
-  payload: campsites
+export const addServices = (services) => ({
+  type: ActionTypes.ADD_SERVICES,
+  payload: services
 });
 
 export const fetchPromotions = () => (dispatch) => {
@@ -147,25 +147,25 @@ export const addPartners = (partners) => ({
   payload: partners
 });
 
-export const postFavorite = (campsiteId) => (dispatch) => {
+export const postFavorite = (serviceId) => (dispatch) => {
   setTimeout(() => {
-    dispatch(addFavorite(campsiteId));
+    dispatch(addFavorite(serviceId));
   }, 2000);
 };
 
-export const addFavorite = (campsiteId) => ({
+export const addFavorite = (serviceId) => ({
   type: ActionTypes.ADD_FAVORITE,
-  payload: campsiteId
+  payload: serviceId
 });
 
-export const deleteFavorite = campsiteId => ({
+export const deleteFavorite = (serviceId) => ({
   type: ActionTypes.DELETE_FAVORITE,
-  payload: campsiteId
-}); 
+  payload: serviceId
+});
 
-export const postComment = (campsiteId, rating, author, text) => (dispatch) => {
+export const postComment = (serviceId, rating, author, text) => (dispatch) => {
   const newComment = {
-    campsiteId,
+    serviceId,
     rating,
     author,
     text

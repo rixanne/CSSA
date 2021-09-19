@@ -11,13 +11,13 @@ import * as Animatable from 'react-native-animatable';
 
 const mapStateToProps = (state) => {
   return {
-    campsites: state.campsites,
+    services: state.services,
     favorites: state.favorites
   };
 };
 
 const mapDispatchToProps = {
-  deleteFavorite: campsiteId => deleteFavorite(campsiteId)
+  deleteFavorite: (serviceId) => deleteFavorite(serviceId)
 };
 
 class Favorites extends Component {
@@ -27,64 +27,62 @@ class Favorites extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    const renderFavoriteItem = ({item}) => {
+    const renderFavoriteItem = ({ item }) => {
       return (
-          <SwipeRow rightOpenValue={-100} style={styles.swipeRow}>
-              <View style={styles.deleteView}>
-              <TouchableOpacity
-                            style={styles.deleteTouchable}
-                            onPress={() =>
-                                Alert.alert(
-                                    'Delete Favorite?',
-                                    'Are you sure you wish to delete the favorite campsite ' +
-                                        item.name +
-                                        '?',
-                                    [
-                                        {
-                                            text: 'Cancel',
-                                            onPress: () => console.log(item.name + 'Not Deleted'),
-                                            style: 'cancel'
-                                        },
-                                        {
-                                            text: 'OK',
-                                            onPress: () => this.props.deleteFavorite(item.id)
-                                        },
-                                    ],
-                                    { cancelable: false }
-                                )
-                            }
-                        >
-                  <Text style={styles.deleteText}>Delete</Text>
-                  </TouchableOpacity>
-              </View>
+        <SwipeRow rightOpenValue={-100} style={styles.swipeRow}>
+          <View style={styles.deleteView}>
+            <TouchableOpacity
+              style={styles.deleteTouchable}
+              onPress={() =>
+                Alert.alert(
+                  'Delete Favorite?',
+                  'Are you sure you wish to delete the favorite service ' + item.name + '?',
+                  [
+                    {
+                      text: 'Cancel',
+                      onPress: () => console.log(item.name + 'Not Deleted'),
+                      style: 'cancel'
+                    },
+                    {
+                      text: 'OK',
+                      onPress: () => this.props.deleteFavorite(item.id)
+                    }
+                  ],
+                  { cancelable: false }
+                )
+              }
+            >
+              <Text style={styles.deleteText}>Delete</Text>
+            </TouchableOpacity>
+          </View>
 
-              <View>
-                  <ListItem
-                      title={item.name}
-                      subtitle={item.description}
-                      leftAvatar={{source: {uri: baseUrl + item.image}}}
-                      onPress={() => navigate('CampsiteInfo', {campsiteId: item.id})}
-                  />
-              </View>
-          </SwipeRow>
+          <View>
+            <ListItem
+              title={item.name}
+              subtitle={item.description}
+              leftAvatar={{ source: { uri: baseUrl + item.image } }}
+              onPress={() => navigate('serviceInfo', { serviceId: item.id })}
+            />
+          </View>
+        </SwipeRow>
       );
-  };
+    };
 
-    if (this.props.campsites.isLoading) {
+    if (this.props.services.isLoading) {
       return <Loading />;
     }
-    if (this.props.campsites.errMess) {
+    if (this.props.services.errMess) {
       return (
         <View>
-          <Text>{this.props.campsites.errMess}</Text>
+          <Text>{this.props.services.errMess}</Text>
         </View>
       );
     }
     return (
-      <Animatable.View animation='fadeInRightBig' duration={2000}>
+      <Animatable.View animation="fadeInRightBig" duration={2000}>
         <FlatList
-          data={this.props.campsites.campsites.filter((campsite) =>
-            this.props.favorites.includes(campsite.id)
+          data={this.props.services.services.filter((service) =>
+            this.props.favorites.includes(service.id)
           )}
           renderItem={renderFavoriteItem}
           keyExtractor={(item) => item.id.toString()}
@@ -96,22 +94,22 @@ class Favorites extends Component {
 
 const styles = StyleSheet.create({
   deleteView: {
-      flexDirection: 'row',
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-      flex: 1
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    flex: 1
   },
   deleteTouchable: {
-      backgroundColor: 'red',
-      height: '100%',
-      justifyContent: 'center'
+    backgroundColor: 'red',
+    height: '100%',
+    justifyContent: 'center'
   },
   deleteText: {
-      color: 'white',
-      fontWeight: '700',
-      textAlign: 'center',
-      fontSize: 16,
-      width: 100
+    color: 'white',
+    fontWeight: '700',
+    textAlign: 'center',
+    fontSize: 16,
+    width: 100
   }
 });
 

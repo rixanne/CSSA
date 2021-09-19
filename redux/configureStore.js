@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { campsites } from './campsites';
+import { services } from './services';
 import { comments } from './comments';
 import { promotions } from './promotions';
 import { favorites } from './favorites';
@@ -18,7 +18,7 @@ const config = {
 export const ConfigureStore = () => {
   const store = createStore(
     persistCombineReducers(config, {
-      campsites,
+      services,
       comments,
       partners,
       promotions,
