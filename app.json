@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "nucampsite",
-    "slug": "nucampsite",
+    "name": "bandb",
+    "slug": "bandb",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

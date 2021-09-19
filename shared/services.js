@@ -2,7 +2,7 @@ export const SERVICES = [
   {
     id: 0,
     name: 'Windows',
-    image: '/assets/images/react-lake.jpg',
+    image: '/assets/images/clean-windows.jpg',
     elevation: 1233,
     featured: false,
     description:

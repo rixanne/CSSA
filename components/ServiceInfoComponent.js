@@ -111,7 +111,7 @@ function RenderService(props) {
             <Icon
               name="pencil"
               type="font-awesome"
-              color="#5637DD"
+              color="#3b70b0"
               raised
               reverse
               onPress={() => {
@@ -121,7 +121,7 @@ function RenderService(props) {
             <Icon
               name={'share'}
               type="font-awesome"
-              color="#5637DD"
+              color="#3b70b0"
               raised
               reverse
               onPress={() =>
