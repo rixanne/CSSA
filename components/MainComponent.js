@@ -225,10 +225,10 @@ const CustomDrawerContentComponent = (props) => (
     <SafeAreaView style={styles.container} forceInset={{ top: 'always', horizontal: 'never' }}>
       <View style={styles.drawerHeader}>
         <View style={{ flex: 1 }}>
-          <Image source={require('./images/logo.png')} style={styles.drawerImage} />
+          <Image source={require('./images/bbwg.png')} style={styles.drawerImage} />
         </View>
         <View style={{ flex: 2 }}>
-          <Text style={styles.drawerHeaderText}>NuCamp</Text>
+          <Text style={styles.drawerHeaderText}>{'B&B\nWindow and Gutter'}</Text>
         </View>
       </View>
       <DrawerItems {...props} />
@@ -386,7 +386,7 @@ const styles = StyleSheet.create({
   },
   drawerHeaderText: {
     color: '#fff',
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold'
   },
   drawerImage: {
