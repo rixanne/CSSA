@@ -46,7 +46,7 @@ const ServicesNavigator = createStackNavigator(
       navigationOptions: ({ navigation }) => ({
         headerLeft: (
           <Icon
-            name="list"
+            name="th-list"
             type="font-awesome"
             iconStyle={styles.stackIcon}
             onPress={() => navigation.toggleDrawer()}
@@ -160,7 +160,7 @@ const ScheduleNavigator = createStackNavigator(
       },
       headerLeft: (
         <Icon
-          name="tree"
+          name="calendar"
           type="font-awesome"
           iconStyle={styles.stackIcon}
           onPress={() => navigation.toggleDrawer()}
@@ -259,7 +259,7 @@ const MainNavigator = createDrawerNavigator(
       screen: ServicesNavigator,
       navigationOptions: {
         drawerIcon: ({ tintColor }) => (
-          <Icon name="list" type="font-awesome" size={24} color={tintColor} />
+          <Icon name="th-list" type="font-awesome" size={24} color={tintColor} />
         )
       }
     },
@@ -268,7 +268,7 @@ const MainNavigator = createDrawerNavigator(
       navigationOptions: {
         drawerLabel: 'Schedule Services',
         drawerIcon: ({ tintColor }) => (
-          <Icon name="tree" type="font-awesome" size={24} color={tintColor} />
+          <Icon name="calendar" type="font-awesome" size={24} color={tintColor} />
         )
       }
     },

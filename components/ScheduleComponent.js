@@ -74,6 +74,16 @@ class Schedule extends Component {
               <Picker.Item label="4" value="4" />
               <Picker.Item label="5" value="5" />
               <Picker.Item label="6" value="6" />
+              <Picker.Item label="7" value="7" />
+              <Picker.Item label="8" value="8" />
+              <Picker.Item label="9" value="9" />
+              <Picker.Item label="10" value="10" />
+              <Picker.Item label="11" value="11" />
+              <Picker.Item label="12" value="12" />
+              <Picker.Item label="13" value="13" />
+              <Picker.Item label="14" value="14" />
+              <Picker.Item label="15" value="15" />
+              <Picker.Item label="More than 15" value="16" />
             </Picker>
           </View>
           <View style={styles.formRow}>
@@ -132,6 +142,15 @@ class Schedule extends Component {
               title="Search"
               color="#3b70b0"
               accessibilityLabel="Tap me to search for available services to schedule"
+            />
+          </View>
+          <View style={styles.formRow}>
+            <Text style={styles.formLabel}>Do you prefer morning or afternoon appointments?</Text>
+            <Switch
+              style={styles.formItem}
+              value={this.state.gutters}
+              trackColor={{ true: '#3b70b0', false: null }}
+              onValueChange={(value) => this.setState({ gutters: value })}
             />
           </View>
         </Animatable.View>
