@@ -144,15 +144,6 @@ class Schedule extends Component {
               accessibilityLabel="Tap me to search for available services to schedule"
             />
           </View>
-          <View style={styles.formRow}>
-            <Text style={styles.formLabel}>Do you prefer morning or afternoon appointments?</Text>
-            <Switch
-              style={styles.formItem}
-              value={this.state.gutters}
-              trackColor={{ true: '#3b70b0', false: null }}
-              onValueChange={(value) => this.setState({ gutters: value })}
-            />
-          </View>
         </Animatable.View>
       </ScrollView>
     );

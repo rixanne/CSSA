@@ -28,9 +28,24 @@ class Contact extends Component {
             <Text style={{ marginBottom: 10 }}>{'U.S.A.'}</Text>
             <Text style={{ marginBottom: 2 }}>{'Phone: 1-510-644-1415'}</Text>
             <Text style={{ marginBottom: 2 }}>{'Email: info@bandbwg.com'}</Text>
+
+            <Button
+              title="Call Us"
+              buttonStyle={{ backgroundColor: '#3b70b0', margin: 10 }}
+              icon={
+                <Icon
+                  name="phone"
+                  type="font-awesome"
+                  color="#fff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              onPress={() => Linking.openURL('tel:1-510-644-1415')}
+            />
+
             <Button
               title="Send Email"
-              buttonStyle={{ backgroundColor: '#3b70b0', margin: 40 }}
+              buttonStyle={{ backgroundColor: '#3b70b0', margin: 10 }}
               icon={
                 <Icon
                   name="envelope-o"
@@ -47,4 +62,5 @@ class Contact extends Component {
     );
   }
 }
+
 export default Contact;
